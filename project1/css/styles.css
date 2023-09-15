@@ -1,0 +1,156 @@
+/*organise ur css as it apperas on webpage so from top to bottom!!*/
+/*want one marginin between elements and two borders for each nav and main*/
+body {height: 100%; width: auto;
+    background-image: linear-gradient(white,rgb(189, 33, 33));
+       }
+
+body header img
+         {width:100% /*this keeps width reaching whole viewport, but sometimes there are other things that might afect i - this is rule of thumb*/;
+        height:auto;/*this creates the flexible img=resizes as i change size ow window*/
+        max-width: 600px;}
+/*note that i put img to target only the image*/
+body aside {
+    width: 40%;
+    padding-left: 0.5rem;
+    margin-left: 0.5rem;
+    margin-top: -15em;
+    float: right;
+    box-shadow: inset 5px 0 5px -5px #160dd1;
+    font-style: italic;
+    color: #160dd1;
+  }
+  
+  body aside > p {
+    margin-left: 0.5rem;
+    float:right
+  }
+
+
+
+nav 
+    {border-top:solid 0.3em black;
+    border-bottom:solid 0.3em black;
+    border-radius: 1em; /*important as no need for any other attributes*/
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;  /*this is border radius for whole block*/
+    text-align:center;
+
+    }
+
+nav ul {padding:0;
+        margin-top: 0.2em; 
+        margin-left: 0.5em;
+        margin-bottom:0.2em; /*hover over n it shows defaults for different browsers*/
+
+} /*here i define only ul - dont go to li as i want style the whole thing*/
+
+nav ul li {background-color:black; /*it colours within padding!!*/
+            padding: 1em; /*makes the black areas spaces larger!*/
+            min-width: 0.25em;
+            margin: .25em; /*margin in between each li!!=black area*/
+            list-style-type:none;/*?must target li*/
+            border-radius:1em; /*if i do this global then border radius should be ok on all viewports*/
+        } 
+
+nav ul li a {color: white; /*to remove mess-up colors when hovering/clicking etc*/
+            text-decoration:none /*removes underlines from hyperlink*/
+            /*so here im going to anchor elements to change specifically those*/
+            /*must section to remove default colors of text*/
+}
+
+main 
+    {margin-top: 1em; /*so margin creates space between border and margin*/
+               /*if no margins specified then borders merge with each other! so no margin between elements - one line visible*/
+    border-top:solid 0.3em darkgreen;
+    border-bottom:solid 0.3em darkgreen;
+    border-radius:1em}
+
+          /*same output if i start from nav with margin bottom; in that sense also adding margin bottom here now wont change appearance*/
+#IndexHeadlines {max-width:1000px; height: fit-content;
+                }
+                
+/*main form {font-family: inherit;
+         font-size: 100%;
+        }  it's an option for parent style inheritance for later */
+        
+#enrollForm {  
+   font-weight: bold;
+             }
+
+
+#MAImage {width: 100%;
+    height: auto;} /*image in index*/
+
+footer 
+    {margin-top:1em; /*if you only put 'margin:'this only created space from side*/
+    border-top:solid 0.3em black;
+    border-bottom:solid 0.3em black;
+    border-radius:1em;/*radius useful to make buttons*/
+    font-weight: bold;
+    }    
+#TextAbout {line-height:300%; 
+            text-align: justify; max-width: 60%;
+            max-height: 70%;
+        }
+
+#AboutFooter {margin-top: 20em;} /*adjusted for visual*/
+
+
+
+                /*below im starting local device-type based css*/
+    /*numbers on px below to strike balance between number of px and resolutions avialable on particular types of devices*/
+
+/*begin mobile*/
+    @media screen and (max-width:640px) {nav ul li {border-radius:1em}
+    #IndexHeadlines {
+                    max-width: 300px;
+                    }
+        
+    } /*note multiple {} dividing functions; note (); note nav li is inside first {} not outside here*/
+    /*note media screen is without "-", so in css we dont join words with"-"*/
+    /*must define path to the last before the item styled, so here i need to go to li; but actually can skip ul for some reason*/
+
+/*end mobile*/
+
+/*begins tablet*/
+@media screen and (min-width:641px) {
+        
+    nav ul li {display: inline-block;
+                border-radius:1em;} /*radius for each text part*/
+    
+    #IndexHeadlines {max-width: 960px;padding:100px}
+    
+/*if i put only "inline" it will not fit the padding nicely into the borders; but as a block it does*/
+        
+
+} 
+
+/*end tablet*/
+
+/*begins desktop*/
+@media screen and (min-width: 960px) {
+        
+    body header img {
+        max-width:50%;
+        height: 12.0em;}
+
+  
+    nav {
+       
+        margin-top:-9.5em;
+        width:45%;
+        float: right; /*floats everything to the firhgt!*/
+   }
+   
+    nav ul li {display: inline-block;
+                
+                border-radius:1em;} 
+    
+        
+    }
+/*if i put only "inline" it will not fit the padding nicely into the borders; but as a block it does*/
+        
+
+
+
+/*end desktop*/
